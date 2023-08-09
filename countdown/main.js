@@ -31,5 +31,7 @@ setInterval(()=>{
 
 },1000);
 
-console.log(Date())
-console.log(date);
+let patata = new Date()
+let restaDiasFechaActualConDeseada = patata.getDate() - 21
+patata.setDate(restaDiasFechaActualConDeseada)
+console.log(patata);
