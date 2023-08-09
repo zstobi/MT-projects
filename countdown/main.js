@@ -4,19 +4,14 @@ const hours = document.querySelector('#hours');
 const mins = document.querySelector('#mins');
 const secs = document.querySelector('#secs');
 
-const day = new Date();
-days.textContent = day.getDate();
+const date = new Date();
 
-const month = new Date();
-months.textContent = day.getMonth() + 1;
-
-const hour = new Date();
-hours.textContent = day.getHours();
-
-const min = new Date();
-mins.textContent = day.getMinutes();
+days.textContent = date.getDate();
+months.textContent = date.getMonth() + 1;
+hours.textContent = date.getHours();
+mins.textContent = date.getMinutes();
 
 setInterval(()=>{
-    let sec = new Date();
-    secs.textContent = day.getSeconds();
+    let second = new Date();
+    secs.textContent = second.getSeconds();
 },1000);
