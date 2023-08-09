@@ -6,6 +6,14 @@ const mins = document.querySelector('#mins');
 const secs = document.querySelector('#secs');
 
 
+// fecha de salida payday 3
+
+let date = new Date();
+const dayS = date.setDate(21);
+const monthS = date.setMonth(8);
+// S stands for Salida
+
+
 // intervalos / contadores
 
 setInterval(()=>{
@@ -24,3 +32,4 @@ setInterval(()=>{
 },1000);
 
 console.log(Date())
+console.log(date);
