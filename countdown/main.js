@@ -78,11 +78,5 @@ setInterval(()=>{
 
 },1000);
 
-let patata = new Date()
-//let restaDiasFechaActualConDeseada = 21 - patata.getDate()
-//let restaMesesFechaActualConDeseada = 8 - patata.getMonth()
-//patata.setDate(restaDiasFechaActualConDeseada)
-//patata.setMonth(restaMesesFechaActualConDeseada)
-//console.log(patata);
-console.log(patata.getMonth())
-//console.log(patata.getDate())
+let patata = new Date();
+console.log(patata);
