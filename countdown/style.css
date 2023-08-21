@@ -103,6 +103,9 @@ section {
     background-image: linear-gradient(to top, #4fb576 0%, #44c489 30%, #28a9ae 46%, #28a2b7 59%, #4c7788 71%, #6c4f63 86%, #432c39 100%);
 
     /* design */
+    width: 50rem;
+    height: 40rem;
+
     border-radius: 1rem;
     box-shadow: none;
 
@@ -120,10 +123,27 @@ section {
 
 img {
     /* design */
-    width: 99.9%;
-    height: 99.6%;
+    width: 49.5rem;
+    height: 29.8rem;
+
     border-radius: 1rem;
+
+    /* animation */
+    transition: all .8ms ease;
 }
+
+.displayOn {
+
+    /* structure */
+    display: block;
+}
+
+.displayOff {
+
+    /* structure */
+    display: none;
+}
+
 
 @keyframes brightness {
     0% {
