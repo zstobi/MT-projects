@@ -41,9 +41,12 @@ let distanceToWishedDate = ( meses[currentMonth] - currentDate.getDate() ) + dat
 // solucion previa:
 
 
-// intervalos / contadores
+// intervalos / contadores / inicialización del contador final
 
-let date2 = new Date();
+let dateUntilRelease = new Date();
+dateUntilRelease.setSeconds(60 - dateUntilRelease.getSeconds())
+dateUntilRelease.setMinutes(60 - dateUntilRelease.getMinutes())
+dateUntilRelease.setHours(23 - dateUntilRelease.getHours())
 
 //date2 es la fecha de hoy
 
@@ -53,15 +56,15 @@ setInterval(()=>{
 
     let restaDiasFechaActualConDeseada = 21 - actualDate.getDate();
     let restaMesesFechaActualConDeseada = 7 - actualDate.getMonth();
-    date2.setDate(restaDiasFechaActualConDeseada);
-    date2.setMonth(restaMesesFechaActualConDeseada);
-    date2.setSeconds(date2.getSeconds() - 1)
+    dateUntilRelease.setDate(restaDiasFechaActualConDeseada);
+    dateUntilRelease.setMonth(restaMesesFechaActualConDeseada);
+    dateUntilRelease.setSeconds(dateUntilRelease.getSeconds() - 1)
 
-    let remainingMonth = date2.getMonth() + 1;
-    let remainingSeconds = date2.getSeconds();
-    let remainingMinutes = date2.getMinutes();
-    let remainingHours = date2.getHours();
-    let remainingDays = date2.getDate();
+    let remainingMonth = dateUntilRelease.getMonth() + 1;
+    let remainingSeconds = dateUntilRelease.getSeconds();
+    let remainingMinutes = dateUntilRelease.getMinutes();
+    let remainingHours = dateUntilRelease.getHours();
+    let remainingDays = dateUntilRelease.getDate();
 
 
     if (remainingMonth < 10){
