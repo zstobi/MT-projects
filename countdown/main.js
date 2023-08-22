@@ -143,12 +143,10 @@ let imgList = [img1,img2,img3,img4,img5];
 
 let imgCounter = 0;
 
-// function 
-
 setInterval(()=>{
     imgCounter++;
 
-    if (imgCounter !== 5 && imgList[imgCounter].classList.contains('displayOff')){
+    if (imgCounter !== 5){
         // efectuar cambio de display en imagen previa
         imgList[imgCounter -1].classList.remove('displayOn');
         imgList[imgCounter -1].classList.add('displayOff');
@@ -170,3 +168,7 @@ setInterval(()=>{
     }
 
 },5000);
+
+
+// hay que probar con window.onload para que carguen de arranque
+// hacer una animacion con la propiedad opacity tambien e ir probando

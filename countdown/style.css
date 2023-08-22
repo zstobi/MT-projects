@@ -100,7 +100,8 @@ section {
 
 .imgBorder {
     /* color */
-    background-image: linear-gradient(to top, #4fb576 0%, #44c489 30%, #28a9ae 46%, #28a2b7 59%, #4c7788 71%, #6c4f63 86%, #432c39 100%);
+    /* background-image: linear-gradient(to top, #4fb576 0%, #44c489 30%, #28a9ae 46%, #28a2b7 59%, #4c7788 71%, #6c4f63 86%, #432c39 100%); */
+    background-image: linear-gradient(to top, #0c3483 0%, #a2b6df 100%, #6b8cce 100%, #a2b6df 100%);
 
     /* design */
     width: 50rem;
@@ -127,12 +128,29 @@ img {
     height: 29.8rem;
 
     border-radius: 1rem;
+}
+
+#blackground {
+    position: absolute;
+    z-index: 0;
+}
+
+.anim {
+    
+    /* animation */
+    animation: appearDesapear 5s linear;
+}
+
+#logoForTransition {
+    position: absolute;
+    z-index: 1;
 
     /* animation */
-    transition: all .8ms ease;
+    animation: appearDesapearInverse 5s infinite linear;
 }
 
 .displayOn {
+    z-index: 10;
 
     /* structure */
     display: block;
@@ -166,5 +184,35 @@ img {
     }
     100% {
         box-shadow: none;
+    }
+}
+
+@keyframes appearDesapear {
+    0% {
+        opacity: 0;
+    }
+    30% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes appearDesapearInverse {
+    0% {
+        opacity: 1;
+    }
+    15% {
+        opacity: 0;
+    }
+    80% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
     }
 }
