@@ -45,7 +45,7 @@ let distanceToWishedDate = ( meses[currentMonth] - currentDate.getDate() ) + dat
 
 let dateUntilRelease = new Date();
 dateUntilRelease.setSeconds(59 - dateUntilRelease.getSeconds());
-console.log(dateUntilRelease.getSeconds())
+console.log(dateUntilRelease);
 dateUntilRelease.setMinutes(60 - dateUntilRelease.getMinutes());
 dateUntilRelease.setHours(23 - dateUntilRelease.getHours());
 
@@ -96,7 +96,7 @@ setInterval(()=>{
         days.textContent = '0'+remainingDays;
     } else {
         days.textContent = remainingDays;
-    }    
+    }
 
     /*
     Este intervalo cada 1 seg obtiene la fecha actual vÃ­a objeto Date().
@@ -109,30 +109,8 @@ setInterval(()=>{
 
 // contenedor de imagenes
 const imgContainer = document.querySelector('.imgBorder');
+
 // lista de imagenes
-// let imgList = [
-//     'https://cdn.cloudflare.steamstatic.com/steam/apps/1272080/ss_9c46b95ab12abc2f78e4e422b74f7606d6babc19.1920x1080.jpg?t=1691159104',
-//     'https://www.infobae.com/new-resizer/oIXP1_Txc0wzutDasLESlYkh4mY=/arc-anglerfish-arc2-prod-infobae/public/C3OB372WGJEXFB2I4RP442PQRE.jpg',
-//     'https://prod.assets.earlygamecdn.com/images/Payday-3-Release-Date-Gameplay-Combat-Characters.png?mtime=1688657051',
-//     'https://gaming-cdn.com/images/products/6442/616x353/payday-3-pc-spil-steam-cover.jpg?v=1686753600',
-//     'https://www.somosxbox.com/wp-content/uploads/2023/05/payday-3-1.jpg'
-// ];
-
-// // contador de imgs
-// let imgCounter = 0;
-
-// setInterval(()=>{
-
-//     if (imgCounter === 4){
-//         imgContainer.innerHTML = `<img src="${imgList[imgCounter]}" alt="">`;
-//         imgCounter = 0;
-//     } else {
-//         imgContainer.innerHTML = `<img src="${imgList[imgCounter]}" alt="">`;
-//         imgCounter+=1;
-//     }
-
-// },5000);
-
 let img1 = document.querySelector('#img1');
 let img2 = document.querySelector('#img2');
 let img3 = document.querySelector('#img3');
@@ -168,7 +146,3 @@ setInterval(()=>{
     }
 
 },5000);
-
-
-// hay que probar con window.onload para que carguen de arranque
-// hacer una animacion con la propiedad opacity tambien e ir probando
