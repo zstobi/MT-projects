@@ -72,7 +72,7 @@ let timerTest = setInterval(()=>{
     let hoursLeft = (totalDaysLeft - Math.floor(totalDaysLeft)) * 24;
     let minutesLeft = (hoursLeft - Math.floor(hoursLeft)) * 60;
     let secondsLeft = (minutesLeft - Math.floor(minutesLeft)) * 60;
-    let milisecondsLeft = (secondsLeft - Math.floor(secondsLeft)) * 1000;
+    // let milisecondsLeft = (secondsLeft - Math.floor(secondsLeft)) * 1000;
 
     const remainingDays = Math.floor(totalDaysLeft);
     const remainingHours = Math.floor(hoursLeft);
@@ -104,6 +104,30 @@ let timerTest = setInterval(()=>{
     }
 
 },1000);
+
+
+let fechaTest = new Date(2024,1,7);
+let mesFuturo = fechaTest.getMonth();
+let newDate = new Date();
+let mesActual = newDate.getMonth();
+let fallout4 = 0;
+let monthCounter = 0;
+
+const distanceToFutureDate = fechaTest.getTime() - newDate.getTime();
+
+let totalDaysLeft = distanceToFutureDate / day;
+
+while (mesActual > mesFuturo) {
+    if ( mesActual === 11){
+        mesActual = 0;
+    }
+    fallout4 = fallout4 + meses[mesActual]; // daysleft - fallout4 dias restantes
+    mesActual++;
+    monthCounter++;
+}
+
+console.log(Math.floor(totalDaysLeft) - fallout4);
+
 
 // setInterval(()=>{
 //     let actualDate = new Date();
