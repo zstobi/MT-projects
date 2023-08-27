@@ -49,6 +49,29 @@ console.log(dateUntilRelease);
 dateUntilRelease.setMinutes(60 - dateUntilRelease.getMinutes());
 dateUntilRelease.setHours(23 - dateUntilRelease.getHours());
 
+// falta seconds
+const minute = 1000 * 60;
+const hour = minute * 60;
+const day = hour * 24;
+// falta month
+const year = day * 365;
+
+let fechaActual = new Date();
+let fechaFutura = new Date(2023,7,30);
+console.log(fechaFutura.getTime());1693364400000
+console.log(fechaActual.getTime());1692922034529
+
+
+// console.log(1692857026323 / 1000);
+
+// console.log(1692857026.323 / 60);
+
+// console.log(28214283.77205 / 60);
+
+// console.log(470238.0628675 / 24);
+
+// console.log(19593.252619479168 / 12);
+
 //date2 es la fecha de hoy
 
 setInterval(()=>{
