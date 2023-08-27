@@ -145,4 +145,4 @@ setInterval(()=>{
         imgList[imgCounter].classList.add('displayOn');
     }
 
-},5000);
+},5000);    
