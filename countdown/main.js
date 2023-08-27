@@ -38,7 +38,8 @@ let distanceToWishedDate = ( meses[currentMonth] - currentDate.getDate() ) + dat
 
 // -----------------------------------------------------------------------------------------------------------------------
 
-// solucion previa:
+// pensar funcion asincronica para esperar a ejecutar la logica y que vaya a la par de un reloj real
+// ejemplo: que el contador vaya a la par que el reloj de 1 en 1, y no de 1,5 en 1,5
 
 
 // intervalos / contadores / inicialización del contador final
@@ -49,64 +50,39 @@ console.log(dateUntilRelease);
 dateUntilRelease.setMinutes(60 - dateUntilRelease.getMinutes());
 dateUntilRelease.setHours(23 - dateUntilRelease.getHours());
 
-// falta seconds
-const minute = 1000 * 60;
+const second = 1000;
+const minute = second * 60;
 const hour = minute * 60;
 const day = hour * 24;
-// falta month
 const year = day * 365;
 
-let fechaActual = new Date();
-let fechaFutura = new Date(2023,7,30);
-console.log(fechaFutura.getTime());1693364400000
-console.log(fechaActual.getTime());1692922034529
+const fechaFutura = new Date(2023,8,21);
 
+let timerTest = setInterval(()=>{
 
-// console.log(1692857026323 / 1000);
+    let fechaActual = new Date();
 
-// console.log(1692857026.323 / 60);
+    const distanceToPayday3 = fechaFutura.getTime() - fechaActual.getTime();
 
-// console.log(28214283.77205 / 60);
+    // const totalSecondsLeft = distanceToPayday3 / second;
+    // const totalMinutesLeft = distanceToPayday3 / minute;
+    // const totalHoursLeft = distanceToPayday3 / hour;
+    const totalDaysLeft = distanceToPayday3 / day;
 
-// console.log(470238.0628675 / 24);
+    let hoursLeft = (totalDaysLeft - Math.floor(totalDaysLeft)) * 24;
+    let minutesLeft = (hoursLeft - Math.floor(hoursLeft)) * 60;
+    let secondsLeft = (minutesLeft - Math.floor(minutesLeft)) * 60;
+    let milisecondsLeft = (secondsLeft - Math.floor(secondsLeft)) * 1000;
 
-// console.log(19593.252619479168 / 12);
+    const remainingDays = Math.floor(totalDaysLeft);
+    const remainingHours = Math.floor(hoursLeft);
+    const remainingMinutes = Math.floor(minutesLeft);
+    const remainingSeconds = Math.floor(secondsLeft);
 
-//date2 es la fecha de hoy
-
-setInterval(()=>{
-    let actualDate = new Date();
-    //actualDate es la fecha de actual y se actualiza cada 1 seg
-
-    let restaDiasFechaActualConDeseada = 21 - actualDate.getDate();
-    let restaMesesFechaActualConDeseada = 7 - actualDate.getMonth();
-    dateUntilRelease.setDate(restaDiasFechaActualConDeseada);
-    dateUntilRelease.setMonth(restaMesesFechaActualConDeseada);
-    dateUntilRelease.setSeconds(dateUntilRelease.getSeconds() - 1);
-
-    let remainingMonth = dateUntilRelease.getMonth() + 1;
-    let remainingSeconds = dateUntilRelease.getSeconds();
-    let remainingMinutes = dateUntilRelease.getMinutes();
-    let remainingHours = dateUntilRelease.getHours();
-    let remainingDays = dateUntilRelease.getDate();
-
-
-    if (remainingMonth < 10){
-        months.textContent = '0'+remainingMonth;
+    if ( remainingDays < 10){
+        days.textContent = '0'+remainingDays;
     } else {
-        months.textContent = remainingMonth;
-    }
-
-    if ( remainingSeconds < 10){
-        secs.textContent = '0'+remainingSeconds;
-    } else {
-        secs.textContent = remainingSeconds;
-    }
-
-    if ( remainingMinutes < 10){
-        mins.textContent = '0'+remainingMinutes;
-    } else {
-        mins.textContent = remainingMinutes;
+        days.textContent = remainingDays;
     }
 
     if ( remainingHours < 10){
@@ -115,18 +91,73 @@ setInterval(()=>{
         hours.textContent = remainingHours;
     }
 
-    if ( remainingDays < 10){
-        days.textContent = '0'+remainingDays;
+    if ( remainingMinutes < 10){
+        mins.textContent = '0'+remainingMinutes;
     } else {
-        days.textContent = remainingDays;
+        mins.textContent = remainingMinutes;
     }
 
-    /*
-    Este intervalo cada 1 seg obtiene la fecha actual vÃ­a objeto Date().
-    luego utiliza la fecha actual para actualizar los datos constantemente.
-    */
+    if ( remainingSeconds < 10){
+        secs.textContent = '0'+remainingSeconds;
+    } else {
+        secs.textContent = remainingSeconds;
+    }
 
 },1000);
+
+// setInterval(()=>{
+//     let actualDate = new Date();
+//     //actualDate es la fecha de actual y se actualiza cada 1 seg
+
+//     let restaDiasFechaActualConDeseada = 21 - actualDate.getDate();
+//     let restaMesesFechaActualConDeseada = 7 - actualDate.getMonth();
+//     dateUntilRelease.setDate(restaDiasFechaActualConDeseada);
+//     dateUntilRelease.setMonth(restaMesesFechaActualConDeseada);
+//     dateUntilRelease.setSeconds(dateUntilRelease.getSeconds() - 1);
+
+//     let remainingMonth = dateUntilRelease.getMonth() + 1;
+//     let remainingSeconds = dateUntilRelease.getSeconds();
+//     let remainingMinutes = dateUntilRelease.getMinutes();
+//     let remainingHours = dateUntilRelease.getHours();
+//     let remainingDays = dateUntilRelease.getDate();
+
+
+//     if (remainingMonth < 10){
+//         months.textContent = '0'+remainingMonth;
+//     } else {
+//         months.textContent = remainingMonth;
+//     }
+
+//     if ( remainingSeconds < 10){
+//         secs.textContent = '0'+remainingSeconds;
+//     } else {
+//         secs.textContent = remainingSeconds;
+//     }
+
+//     if ( remainingMinutes < 10){
+//         mins.textContent = '0'+remainingMinutes;
+//     } else {
+//         mins.textContent = remainingMinutes;
+//     }
+
+//     if ( remainingHours < 10){
+//         hours.textContent = '0'+remainingHours;
+//     } else {
+//         hours.textContent = remainingHours;
+//     }
+
+//     if ( remainingDays < 10){
+//         days.textContent = '0'+remainingDays;
+//     } else {
+//         days.textContent = remainingDays;
+//     }
+
+//     /*
+//     Este intervalo cada 1 seg obtiene la fecha actual vÃ­a objeto Date().
+//     luego utiliza la fecha actual para actualizar los datos constantemente.
+//     */
+
+// },1000);
 
 // slider de imagenes
 
