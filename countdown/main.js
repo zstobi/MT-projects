@@ -56,7 +56,8 @@ const hour = minute * 60;
 const day = hour * 24;
 const year = day * 365;
 
-const fechaFutura = new Date(2023,11,21);
+//const fechaFutura = new Date(2023,8,21);
+const fechaFutura = new Date(2023,8,21,0,0,0,0);
 
 let timerTest = setInterval(()=>{
 
@@ -77,7 +78,7 @@ let timerTest = setInterval(()=>{
     //let fechaTest = new Date(2024,1,7);
     let mesFuturo = fechaFutura.getMonth();
     //let newDate = new Date();
-    let mesActual = fechaActual.getMonth();
+    let mesActual = fechaActual.getMonth() + 1;
     let daysWithMonths = 0;
     let monthCounter = 0;
 
@@ -90,14 +91,19 @@ let timerTest = setInterval(()=>{
     //    monthCounter++;
     //}
 
+    //daysWithMonths -= meses[mesActual]
+
     while (mesActual != mesFuturo) {
         if ( mesActual === 11){
             mesActual = 0;
         }
-        daysWithMonths = daysWithMonths + meses[mesActual]; // daysleft - daysWithMonths dias restantes
+        if (totalDaysLeft > daysWithMonths) {
+            daysWithMonths += meses[mesActual]; // daysleft - daysWithMonths dias restantes        
+        }
         mesActual++;
         monthCounter++;
     }
+    
 
     //problema: totalDaysLeft en realidad está sumando un mes de más, hay que evitar eso
 
