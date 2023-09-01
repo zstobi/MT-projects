@@ -1,4 +1,4 @@
-// solucion actual - en desarrollo
+//  LOGIC
 
 // constantes del reloj
 const months = document.querySelector('#months');
@@ -8,6 +8,7 @@ const mins = document.querySelector('#mins');
 const secs = document.querySelector('#secs');
 
 // constantes - cantidad de dias en mes
+// meses del 0 al 11
 const meses = {
     '0': 31,
     '1': 28,
@@ -23,213 +24,116 @@ const meses = {
     '11': 31
 };
 
-// fecha de salida payday 3
-
-let date = new Date();
-const dayS = date.setDate(21);
-const monthS = date.setMonth(8);
-// S stands for Salida
-
-let currentDate = new Date();
-
-let currentMonth = currentDate.getMonth();
-
-let distanceToWishedDate = ( meses[currentMonth] - currentDate.getDate() ) + date.getDate();
-
-// -----------------------------------------------------------------------------------------------------------------------
-
-// pensar funcion asincronica para esperar a ejecutar la logica y que vaya a la par de un reloj real
-// ejemplo: que el contador vaya a la par que el reloj de 1 en 1, y no de 1,5 en 1,5
-
-
-// intervalos / contadores / inicialización del contador final
-
-let dateUntilRelease = new Date();
-dateUntilRelease.setSeconds(59 - dateUntilRelease.getSeconds());
-console.log(dateUntilRelease);
-dateUntilRelease.setMinutes(60 - dateUntilRelease.getMinutes());
-dateUntilRelease.setHours(23 - dateUntilRelease.getHours());
-
+// constantes de tiempo
 const second = 1000;
 const minute = second * 60;
 const hour = minute * 60;
 const day = hour * 24;
-const year = day * 365;
 
-//const fechaFutura = new Date(2023,8,21);
-const fechaFutura = new Date(2023,8,21,0,0,0,0);
+/*
 
-let timerTest = setInterval(()=>{
+estas dos variables no sirven para este proyecto, pero si para el grande
 
+const month = day * 30; 
+const year = (month * 12) + 5;
+
+*/
+
+// fecha de salida payday 3
+const fechaFutura = new Date(2023,8,21);
+
+// funcion que agrega un 0 en caso de tener un numero entre 0 y 10 sin incluir al 10
+function adding0IfNecessary(section,time){
+    if ( time < 10){
+        section.textContent = '0' + time;
+    } else {
+        section.textContent = time;
+    }
+}
+
+// funcion que va a realizar la logica del paso del tiempo hacia la salida del payday 3
+function timeCalculate(){
+
+    // variable fecha actual
     let fechaActual = new Date();
 
-    const distanceToPayday3 = fechaFutura.getTime() - fechaActual.getTime();
+    // distancia total entre la fecha de salida y la fecha actual, en milisegundos
+    let distanceToPayday3 = fechaFutura.getTime() - fechaActual.getTime();
 
-    // const totalSecondsLeft = distanceToPayday3 / second;
-    // const totalMinutesLeft = distanceToPayday3 / minute;
-    // const totalHoursLeft = distanceToPayday3 / hour;
-    const totalDaysLeft = distanceToPayday3 / day;
+    // distancia dias totales desde la fecha actual a la fecha de salida, en milisegundos
+    let totalDaysLeft = distanceToPayday3 / day;
 
+    // distancia horas totales desde la fecha actual a la fecha de salida, en milisegundos
     let hoursLeft = (totalDaysLeft - Math.floor(totalDaysLeft)) * 24;
-    let minutesLeft = (hoursLeft - Math.floor(hoursLeft)) * 60;
-    let secondsLeft = (minutesLeft - Math.floor(minutesLeft)) * 60;
-    // let milisecondsLeft = (secondsLeft - Math.floor(secondsLeft)) * 1000;
 
-    //let fechaTest = new Date(2024,1,7);
+    // distancia minutos totales desde la fecha actual a la fecha de salida, en milisegundos
+    let minutesLeft = (hoursLeft - Math.floor(hoursLeft)) * 60;
+
+    // distancia segundos totales desde la fecha actual a la fecha de salida, en milisegundos
+    let secondsLeft = (minutesLeft - Math.floor(minutesLeft)) * 60;
+
+    /*
+    
+    este while es para el proyecto grande: ( venir a buscar cuando arranquemos ese proyecto !!!)
+    
     let mesFuturo = fechaFutura.getMonth();
-    //let newDate = new Date();
     let mesActual = fechaActual.getMonth() + 1;
     let daysWithMonths = 0;
     let monthCounter = 0;
-
-    //while (mesActual > mesFuturo) {
-    //    if ( mesActual === 11){
-    //        mesActual = 0;
-    //    }
-    //    daysWithMonths =+ meses[mesActual]; // daysleft - daysWithMonths dias restantes
-    //    mesActual++;
-    //    monthCounter++;
-    //}
-
-    //daysWithMonths -= meses[mesActual]
 
     while (mesActual != mesFuturo) {
         if ( mesActual === 11){
             mesActual = 0;
         }
         if (totalDaysLeft > daysWithMonths) {
-            daysWithMonths += meses[mesActual]; // daysleft - daysWithMonths dias restantes        
+            daysWithMonths += meses[mesActual];        
         }
         mesActual++;
         monthCounter++;
-    }
-    
+    };
 
-    //problema: totalDaysLeft en realidad está sumando un mes de más, hay que evitar eso
-
+    // estas constantes se usarian en caso de que hayan mas de 30 dias
+    // ejemplo, los dias restantes son 65 -> en el casillero de mes iria un 2 y en el casillero de dias iria un 5
     const remainingMonths = Math.floor(monthCounter);
-    const remainingDays = (Math.floor(totalDaysLeft) - daysWithMonths); //Math.floor(totalDaysLeft);
-    const remainingHours = Math.floor(hoursLeft);   
-    const remainingMinutes = Math.floor(minutesLeft);
-    const remainingSeconds = Math.floor(secondsLeft);
+    const remainingDays = (Math.floor(totalDaysLeft) - daysWithMonths); // Math.floor(totalDaysLeft);
 
-    console.log(Math.floor(totalDaysLeft))
-    console.log(Math.floor(daysWithMonths))
+    */
 
-    if ( remainingMonths < 10){
-        months.textContent = '0'+remainingMonths;
-    } else {
-        months.textContent = remainingMonths;
+    // constantes para obtener el entero que va a ser ingresado en el casillero que le corresponda
+    // dias restantes
+    let remainingDays = Math.floor(totalDaysLeft);
+    // horas restantes
+    let remainingHours = Math.floor(hoursLeft);
+    // minutos restantes
+    let remainingMinutes = Math.floor(minutesLeft);
+    // segundos restantes
+    let remainingSeconds = Math.floor(secondsLeft);
+
+    // ubicamos los enteros en el casillero correspondiente
+    adding0IfNecessary(days,remainingDays);
+    adding0IfNecessary(hours,remainingHours);
+    adding0IfNecessary(mins,remainingMinutes);
+    adding0IfNecessary(secs,remainingSeconds);
+
+    // comparamos fecha actual con futura
+    // si son iguales, finaliza el countdown y se activa la animacion
+    if (fechaActual === fechaFutura) {
+        clearInterval(timerTest);
+
+        // agregar animacion de finalizacion de countdown
     }
+}
 
-    if ( remainingDays < 10){
-        days.textContent = '0'+remainingDays;
-    } else {
-        days.textContent = remainingDays;
-    }
+// countdown generado
+let timerTest = setInterval(timeCalculate,1000);
 
-    if ( remainingHours < 10){
-        hours.textContent = '0'+remainingHours;
-    } else {
-        hours.textContent = remainingHours;
-    }
+// 
+// 
+// 
 
-    if ( remainingMinutes < 10){
-        mins.textContent = '0'+remainingMinutes;
-    } else {
-        mins.textContent = remainingMinutes;
-    }
-
-    if ( remainingSeconds < 10){
-        secs.textContent = '0'+remainingSeconds;
-    } else {
-        secs.textContent = remainingSeconds;
-    }
-
-},1000);
-
-
-//let fechaTest = new Date(2024,1,7);
-//let mesFuturo = fechaTest.getMonth();
-//let newDate = new Date();
-//let mesActual = newDate.getMonth();
-//let fallout4 = 0;
-//let monthCounter = 0;
-//
-//const distanceToFutureDate = fechaTest.getTime() - newDate.getTime();
-//
-//let totalDaysLeft = distanceToFutureDate / day;
-//
-//while (mesActual > mesFuturo) {
-//    if ( mesActual === 11){
-//        mesActual = 0;
-//    }
-//    fallout4 = fallout4 + meses[mesActual]; // daysleft - fallout4 dias restantes
-//    mesActual++;
-//    monthCounter++;
-//}
-//
-//console.log(Math.floor(totalDaysLeft) - fallout4);
-
-
-// setInterval(()=>{
-//     let actualDate = new Date();
-//     //actualDate es la fecha de actual y se actualiza cada 1 seg
-
-//     let restaDiasFechaActualConDeseada = 21 - actualDate.getDate();
-//     let restaMesesFechaActualConDeseada = 7 - actualDate.getMonth();
-//     dateUntilRelease.setDate(restaDiasFechaActualConDeseada);
-//     dateUntilRelease.setMonth(restaMesesFechaActualConDeseada);
-//     dateUntilRelease.setSeconds(dateUntilRelease.getSeconds() - 1);
-
-//     let remainingMonth = dateUntilRelease.getMonth() + 1;
-//     let remainingSeconds = dateUntilRelease.getSeconds();
-//     let remainingMinutes = dateUntilRelease.getMinutes();
-//     let remainingHours = dateUntilRelease.getHours();
-//     let remainingDays = dateUntilRelease.getDate();
-
-
-//     if (remainingMonth < 10){
-//         months.textContent = '0'+remainingMonth;
-//     } else {
-//         months.textContent = remainingMonth;
-//     }
-
-//     if ( remainingSeconds < 10){
-//         secs.textContent = '0'+remainingSeconds;
-//     } else {
-//         secs.textContent = remainingSeconds;
-//     }
-
-//     if ( remainingMinutes < 10){
-//         mins.textContent = '0'+remainingMinutes;
-//     } else {
-//         mins.textContent = remainingMinutes;
-//     }
-
-//     if ( remainingHours < 10){
-//         hours.textContent = '0'+remainingHours;
-//     } else {
-//         hours.textContent = remainingHours;
-//     }
-
-//     if ( remainingDays < 10){
-//         days.textContent = '0'+remainingDays;
-//     } else {
-//         days.textContent = remainingDays;
-//     }
-
-//     /*
-//     Este intervalo cada 1 seg obtiene la fecha actual vÃ­a objeto Date().
-//     luego utiliza la fecha actual para actualizar los datos constantemente.
-//     */
-
-// },1000);
+// ANIMATIONS
 
 // slider de imagenes
-
-// contenedor de imagenes
-const imgContainer = document.querySelector('.imgBorder');
 
 // lista de imagenes
 let img1 = document.querySelector('#img1');
@@ -266,4 +170,4 @@ setInterval(()=>{
         imgList[imgCounter].classList.add('displayOn');
     }
 
-},5000);    
+},5000);

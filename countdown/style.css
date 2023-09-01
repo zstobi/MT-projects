@@ -216,3 +216,42 @@ img {
         opacity: 1;
     }
 }
+
+/* ( min-width : 366px ) and */
+@media ( max-width : 366px ) {
+
+    section {
+        
+        /* design */
+        width: 90dvw;
+    
+        /* structure */
+        display: flex;
+        place-content: center;
+        place-items: center;
+        justify-content: space-around;
+    
+    }
+    
+    .reloj {
+        /* color */
+        background-color: #0000002c;
+        color: #fff;
+    
+        /* design */
+        width: 1rem;
+        padding: 1rem;
+        border-radius: .2rem;
+        box-shadow: 2px 2px 0px #0000005e;
+    
+        /* font */
+        font-family: 'Prompt', sans-serif;
+        font-size: 1rem;
+    
+        /* structure */
+        display: flex;
+        place-content: center;
+        place-items: center;
+    }
+
+}
