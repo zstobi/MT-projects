@@ -1,13 +1,12 @@
 //  LOGIC
 
 // constantes del reloj
-const months = document.querySelector('#months');
 const days = document.querySelector('#days');
 const hours = document.querySelector('#hours');
 const mins = document.querySelector('#mins');
 const secs = document.querySelector('#secs');
 
-// constantes - cantidad de dias en mes
+// coleccion - cantidad de dias en mes
 // meses del 0 al 11
 const meses = {
     '0': 31,
@@ -34,7 +33,7 @@ const day = hour * 24;
 
 estas dos variables no sirven para este proyecto, pero si para el grande
 
-const month = day * 30; 
+const month = day * 30;
 const year = (month * 12) + 5;
 
 */
@@ -171,3 +170,4 @@ setInterval(()=>{
     }
 
 },5000);
+
