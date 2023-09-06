@@ -119,8 +119,8 @@ function timeCalculate(){
     if (fechaActual === fechaFutura) {
         clearInterval(timerTest);
 
-        // agregar animacion de finalizacion de countdown
-    }
+        confettiSplash();
+    };
 }
 
 // countdown generado
@@ -171,3 +171,35 @@ setInterval(()=>{
 
 },5000);
 
+
+// animación final
+
+const jsConfetti = new JSConfetti();
+
+function confettiSplash() {
+
+    let timer = setInterval (()=>{
+
+        jsConfetti.addConfetti({
+            confettiNumber: 578,
+            confettiColors: [
+                '#fff', '#c8bf57', '#50de82', '#28964f', '#2f6c45', '＃2c814a',
+              ],
+        });
+        jsConfetti.addConfetti({
+            emojis: ['🚨', '🚁', '🗽', '🔥', '📈', '🏧', '💵', '💸', '💰', '💲', '💷', '💣'],
+            emojiSize: 45
+         })
+    },1000);
+    
+    setTimeout(()=>{
+
+        clearInterval(timer);
+
+    },10000);
+    
+
+};
+
+// test
+confettiSplash()
