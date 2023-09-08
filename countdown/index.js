@@ -183,7 +183,7 @@ function confettiSplash() {
         jsConfetti.addConfetti({
             confettiNumber: 578,
             confettiColors: [
-                '#fff', '#c8bf57', '#50de82', '#28964f', '#2f6c45', '＃2c814a',
+                '#fff', '#c8bf57', '#50de82', '#28964f', '#2f6c45', '#2c814a',
               ],
         });
         jsConfetti.addConfetti({
