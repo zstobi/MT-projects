@@ -187,7 +187,8 @@ function confettiSplash() {
               ],
         });
         jsConfetti.addConfetti({
-            emojis: ['🚨', '🚁', '🗽', '🔥', '📈', '🏧', '💵', '💸', '💰', '💲', '💷', '💣'],
+            // emojis: ['🚨', '🚁', '🗽', '🔥', '📈', '🏧', '💵', '💸', '💰', '💲', '💷', '💣'],
+            emojis: ['💸', '💰', '💲'],
             emojiSize: 45
          })
     },1000);
@@ -196,10 +197,10 @@ function confettiSplash() {
 
         clearInterval(timer);
 
-    },10000);
+    },20000);
     
 
 };
 
 // test
-confettiSplash()
+// confettiSplash()
