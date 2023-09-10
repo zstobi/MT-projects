@@ -203,4 +203,4 @@ function confettiSplash() {
 };
 
 // test
-// confettiSplash()
+confettiSplash()

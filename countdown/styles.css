@@ -301,10 +301,10 @@ section {
 
 .info {
     /* color */
-    background-color: #050505;
+    /* background-color: #050505; */
 
     /* design */
-    max-width: 120ch;
+    max-width: 116ch;
     margin-bottom: 30px;
     padding: 2rem;
     border-radius: 2px;
@@ -334,21 +334,30 @@ ul {
     list-style-type: none;
 }
 
-li, p {
-    font-size: 1.2rem;
-}
-
 b {
-    font-size: 1.5rem;
+    font-size: clamp(1.3rem, 1.1571rem + 0.2857vw, 1.5rem);
     font-weight: 400;
 }
 
 h5 {
-    font-size: 1.4rem;
-    font-weight: 400;
+    color: forestgreen;
+    font-size: clamp(1.2rem, 1.0571rem + 0.2857vw, 1.4rem);
+    font-weight: 300;
+}
+
+li, p {
+    font-size: clamp(1rem, 0.8571rem + 0.2857vw, 1.2rem);
+    font-weight: 100;
 }
 
 a {
     color: forestgreen;
     text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+
+@media ( max-width : 1000px ) {
+    
 }
