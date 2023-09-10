@@ -22,12 +22,11 @@ html {
 
 body {
     /* color */
-    background: rgb(6,59,0);
     background: radial-gradient(circle, rgba(6,59,0,1) 0%, rgba(0,0,0,1) 100%);
 
     /* design */
+    min-height: 100dvh;
     z-index: 10;
-    height: 100dvh;
     opacity: .9;
 
     /* structure */
@@ -45,6 +44,7 @@ main {
     /* structure */
     display: flex;
     flex-direction: column;
+    gap: 3rem;
 }
 
 .top {
@@ -64,8 +64,12 @@ main {
     padding: 5px;
     overflow: hidden;
     box-shadow: 0px 0px 10px #001d04;
+    z-index: 3;
 
     border-radius: 8px;
+
+    /* animations */
+    animation: brightness 5s ease infinite;
 }
 
 .imgBorder::before {
@@ -78,7 +82,7 @@ main {
     background-image: linear-gradient(to top, #4fb576 0%, #44c489 30%, #28a9ae 46%, #28a2b7 59%, #4c7788 71%, #6c4f63 86%, #432c39 100%);
     transform-origin: bottom right;
     animation: animate 5s linear infinite;
-    z-index: 1;
+    z-index: 3;
 }
 
 .imgBorder::after {
@@ -91,10 +95,10 @@ main {
     height: 350px;
     transform-origin: bottom right;
     animation: animate 5s linear 2.5s infinite;
-    z-index: 1;
+    z-index: 3;
 }
 
-.imgContainer {
+.imgEffect {
     /* color */
     background-color: #001b10;
 
@@ -107,6 +111,105 @@ main {
     /* structure */
     display: grid;
     place-items: center;
+}
+
+.imgContainer {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+img {
+    height: 100%;
+    width: 100%;
+    border-radius: 8px;
+}
+
+#blackground {
+    position: absolute;
+    z-index: 0;
+}
+
+.anim {
+    
+    /* animation */
+    animation: appearDesapear 5s linear;
+}
+
+#logoForTransition {
+    position: absolute;
+    z-index: 1;
+
+    /* animation */
+    animation: appearDesapearInverse 5s infinite linear;
+}
+
+.displayOn {
+    z-index: 10;
+
+    /* structure */
+    display: block;
+}
+
+.displayOff {
+
+    /* structure */
+    display: none;
+}
+
+
+@keyframes brightness {
+    0% {
+        box-shadow: none;
+    }
+    25% {
+        box-shadow: 0px 0px 10px #ffffff2c;
+    }
+    40% {
+        box-shadow: 0px 0px 10px #ffffff41;
+    }
+    50% {
+        box-shadow: 0px 0px 10px #ffffff86;
+    }
+    60% {
+        box-shadow: 0px 0px 10px #ffffff41;
+    }
+    75% {
+        box-shadow: 0px 0px 10px #ffffff2c;
+    }
+    100% {
+        box-shadow: none;
+    }
+}
+
+@keyframes appearDesapear {
+    0% {
+        opacity: 0;
+    }
+    30% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes appearDesapearInverse {
+    0% {
+        opacity: 1;
+    }
+    15% {
+        opacity: 0;
+    }
+    80% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
 .topRight {
@@ -139,7 +242,22 @@ section {
 
     /* structure */
     display: flex;
+    flex-direction: column;
+    gap: .3rem;
+}
+
+.clock {
+    display: flex;
     justify-content: space-evenly;
+}
+
+.timeSubtitles {
+    font-family: 'Prompt', sans-serif;
+    font-weight: 200;
+    font-size: 1rem;
+
+    display: flex;
+    justify-content: space-around;
 }
 
 .reloj {
@@ -152,10 +270,14 @@ section {
     /* height: 6rem; */
     padding: 1rem;
     /* border-radius: .2rem; */
-    box-shadow: 2px 2px 0px #0000005e;
+    /* box-shadow: 0px 0px 10px forestgreen; */
+    
+    border-left: 3px solid forestgreen;
+    border-radius: 3px;
 
     /* font */
     font-family: 'Prompt', sans-serif;
+    font-weight: 100;
     font-size: 2rem;
 
     /* structure */
@@ -173,4 +295,60 @@ section {
     100% {
         transform: rotate(360deg);
     }
+}
+
+/* INFO SECTION */
+
+.info {
+    /* color */
+    background-color: #050505;
+
+    /* design */
+    max-width: 120ch;
+    margin-bottom: 30px;
+    padding: 2rem;
+    border-radius: 2px;
+
+    /* structure */
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.infoBlock {
+    /* color */
+    background-color: #000000;
+
+    /* font */
+    font-family: 'Prompt', sans-serif;
+    font-weight: 200;
+    font-size: 1.4rem;
+
+    /* design */
+    padding: .5rem;
+    border-left: 3px solid forestgreen;
+    border-radius: 3px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+li, p {
+    font-size: 1.2rem;
+}
+
+b {
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
+h5 {
+    font-size: 1.4rem;
+    font-weight: 400;
+}
+
+a {
+    color: forestgreen;
+    text-decoration: none;
 }
