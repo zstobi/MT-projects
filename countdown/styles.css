@@ -119,6 +119,10 @@ main {
     overflow: hidden;
 }
 
+.imgMobileContainer {
+    display: none;
+}
+
 img {
     height: 100%;
     width: 100%;
@@ -359,5 +363,123 @@ a:hover {
 }
 
 @media ( max-width : 1000px ) {
+
+    html, body, main {
+
+        /* design */
+        max-width: 100dvw;
+
+    }
+
+    main {
+        
+        /* design */
+        gap: 1.5rem;
+    }
+
+    .top {
+        /* structure */
+        flex-direction: column;
+        place-items: center;
+        gap: 3rem;
+    }
+
+    .topRight {
+
+        /* structure */
+        gap: 3rem;
+    }
     
+}
+
+@media ( max-width : 600px ) {
+
+    html, body {
+
+        /* design */
+        width: 100dvw;
+        place-content: center;
+        place-items: center;
+
+    }
+
+    main {
+        margin-bottom: 30px;
+        width: 90dvw;
+        place-content: center;
+        place-items: center;
+        gap: 3rem;
+    }
+
+    .imgBorder {
+        display: none;
+    }
+
+    .top {
+        
+        width: 100dvw;
+    }
+
+    .imgMobileContainer {
+
+        /* design */
+        width: 100dvw;
+        position: relative;
+        object-fit: scale-down;
+        
+        /* structure */
+        display: flex;
+        place-items: center;
+        place-content: center;
+    }
+
+    img {
+        border-radius: 0px;
+        width: 100dvw;
+    }
+
+    .topRight {
+        max-width: 100dvw;
+    }
+
+    .reloj {
+        /* design */
+        width: 3rem;
+        padding: .5rem;
+    
+        /* font */
+        font-size: 1.5rem;
+    }    
+
+    .clock {
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    .timeSubtitles {
+        font-size: .8rem;
+
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    .info {    
+        /* design */
+        width: 100dvw;
+        padding: 0;
+        border-radius: 0px;
+    
+        /* structure */
+        display: flex;
+        flex-direction: column;
+        gap: .8rem;
+    }
+    
+    .infoBlock {    
+        /* design */
+        padding: .5rem;
+        border-left: 3px solid forestgreen;
+        border-radius: 0px;
+    }
+
 }
