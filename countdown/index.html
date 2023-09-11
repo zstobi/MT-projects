@@ -1,44 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PayDay 3 release: Countdown!</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/x-icon" href="https://www.paydaycrimewar.com/wp-content/uploads/2021/10/cropped-cropped-DallasB.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@100&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
-</head>
-<body>
-    
-    <main>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>PayDay 3 release: Countdown!</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="icon" type="image/x-icon" href="https://www.paydaycrimewar.com/wp-content/uploads/2021/10/cropped-cropped-DallasB.png">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@100;200;300;400&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        
+        <main>
 
-        <h1>PAYDAY 3</h1>
+            <div class="top">
+                
+                <div class="topRight">
 
-        <div class="imgBorder">
-            <img src="https://mp1st.com/wp-content/uploads/2022/12/payday-3-teaser-trailer.png" id="logoForTransition">
-            <img src="https://cdn.discordapp.com/attachments/1103674554599084143/1143335547310452827/image.png" id="blackground">
-            <img class="displayOn anim"  id="img1" src="https://cdn.cloudflare.steamstatic.com/steam/apps/1272080/ss_9c46b95ab12abc2f78e4e422b74f7606d6babc19.1920x1080.jpg?t=1691159104" alt="">
-            <img class="displayOff anim" id="img2" src="https://www.infobae.com/new-resizer/oIXP1_Txc0wzutDasLESlYkh4mY=/arc-anglerfish-arc2-prod-infobae/public/C3OB372WGJEXFB2I4RP442PQRE.jpg" alt="">
-            <img class="displayOff anim" id="img3" src="https://prod.assets.earlygamecdn.com/images/Payday-3-Release-Date-Gameplay-Combat-Characters.png?mtime=1688657051" alt="">
-            <img class="displayOff anim" id="img4" src="https://gaming-cdn.com/images/products/6442/616x353/payday-3-pc-spil-steam-cover.jpg?v=1686753600" alt="">
-            <img class="displayOff anim" id="img5" src="https://www.somosxbox.com/wp-content/uploads/2023/05/payday-3-1.jpg" alt="">
+                    <h1>PAYDAY 3</h1>
 
-        </div>
+                    <section>
 
-        <section>
+                        <div class="clock">
+                            <div id="days" class="reloj">00</div>
+                            <div id="hours" class="reloj">00</div>
+                            <div id="mins" class="reloj">00</div>
+                            <div id="secs" class="reloj">00</div>
+                        </div>
+        
+                        <div class="timeSubtitles">
 
-            <div id="days" class="reloj">00</div>
-            <div id="hours" class="reloj">00</div>
-            <div id="mins" class="reloj">00</div>
-            <div id="secs" class="reloj">00</div>
+                            <div>Days</div>
+                            <div>Hours</div>
+                            <div>Minutes</div>
+                            <div>Seconds</div>
+            
+                        </div>
 
-        </section>
+                    </section>
 
-    </main>
-    <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
-    <script src="index.js"></script>
-</body>
+                </div>
+
+                <div class="imgBorder">
+
+                    <div class="imgEffect">
+        
+                        <div class="imgContainer">
+
+                            <img src="https://mp1st.com/wp-content/uploads/2022/12/payday-3-teaser-trailer.png" id="logoForTransition">
+                            <img src="https://cdn.discordapp.com/attachments/1103674554599084143/1143335547310452827/image.png" id="blackground">
+                            <img class="displayOn anim"  id="img1" src="https://cdn.cloudflare.steamstatic.com/steam/apps/1272080/ss_9c46b95ab12abc2f78e4e422b74f7606d6babc19.1920x1080.jpg?t=1691159104" alt="">
+                            <img class="displayOff anim" id="img2" src="https://www.infobae.com/new-resizer/oIXP1_Txc0wzutDasLESlYkh4mY=/arc-anglerfish-arc2-prod-infobae/public/C3OB372WGJEXFB2I4RP442PQRE.jpg" alt="">
+                            <img class="displayOff anim" id="img3" src="https://prod.assets.earlygamecdn.com/images/Payday-3-Release-Date-Gameplay-Combat-Characters.png?mtime=1688657051" alt="">
+                            <img class="displayOff anim" id="img4" src="https://gaming-cdn.com/images/products/6442/616x353/payday-3-pc-spil-steam-cover.jpg?v=1686753600" alt="">
+                            <img class="displayOff anim" id="img5" src="https://www.somosxbox.com/wp-content/uploads/2023/05/payday-3-1.jpg" alt="">
+
+                        </div>
+        
+                    </div>
+        
+                </div>
+
+                <div class="imgMobileContainer">
+
+                    <img src="https://mp1st.com/wp-content/uploads/2022/12/payday-3-teaser-trailer.png" id="logoForTransition">
+                    <img src="https://cdn.discordapp.com/attachments/1103674554599084143/1143335547310452827/image.png" id="blackground">
+                    <img class="displayOn anim"  id="img1" src="https://cdn.cloudflare.steamstatic.com/steam/apps/1272080/ss_9c46b95ab12abc2f78e4e422b74f7606d6babc19.1920x1080.jpg?t=1691159104" alt="">
+                    <img class="displayOff anim" id="img2" src="https://www.infobae.com/new-resizer/oIXP1_Txc0wzutDasLESlYkh4mY=/arc-anglerfish-arc2-prod-infobae/public/C3OB372WGJEXFB2I4RP442PQRE.jpg" alt="">
+                    <img class="displayOff anim" id="img3" src="https://prod.assets.earlygamecdn.com/images/Payday-3-Release-Date-Gameplay-Combat-Characters.png?mtime=1688657051" alt="">
+                    <img class="displayOff anim" id="img4" src="https://gaming-cdn.com/images/products/6442/616x353/payday-3-pc-spil-steam-cover.jpg?v=1686753600" alt="">
+                    <img class="displayOff anim" id="img5" src="https://www.somosxbox.com/wp-content/uploads/2023/05/payday-3-1.jpg" alt="">
+
+                </div>
+
+            </div>
+
+            <div class="info">
+
+                <div class="infoBlock">
+                    <p><b>PAYDAY 3</b> will release on the 21st of September, 2023.</p>
+                </div>
+
+                <div class="infoBlock">
+
+                    <h5>System Requirements</h5>
+
+                    <h5>Minimum:</h5>
+                    <ul>
+                        <li>Processor: Intel Core i5-9400F</li>
+                        <li>Memory: 16 GB RAM</li>
+                        <li>Graphics: Nvidia GTX 1650 (4GB)</li>
+                    </ul>
+
+                    <h5>Recommended:</h5>
+                    <ul>
+                        <li>Processor: Intel Core i7-9700K</li>
+                        <li>Memory: 16 GB RAM</li>
+                        <li>Graphics: Nvidia GTX 1080 (8GB)</li>
+                    </ul>
+
+                </div>
+
+                <div class="infoBlock">
+                    <h5>Development Engine</h5>
+                    <p>The game is developed on Unreal Engine 4. The developers are planning on upgrading to Unreal Engine 5 post launch.</p>
+                </div>
+
+                <div class="infoBlock">
+                    <h5>Multiplatform</h5>
+                    <p>The game will be available on PC, PlayStation 5 and Xbox Series X/S. Unreal Engine motor ensure that the PC and console versions are the same game.</p>
+                </div>
+
+                <div class="infoBlock">
+                    <h5>Crossplay</h5>
+                    <p>PAYDAY 3 supports crossplay with all supported platforms, which means that you can play with your friends no matter where they prefer to play. You will also be able to avail of cross-progression, so you can heist from your preferred platform at any time.</p>
+                </div>
+
+                <div class="infoBlock">
+                    <h5>Prices</h5>
+                    <p>Game costs <a target="_blank" href="https://www.paydaythegame.com/payday3/#buy">here</a>.</p>
+                </div>
+
+            </div>
+
+        </main>
+
+        <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
+        <script src="main.js"></script>
+    </body>
 </html>
