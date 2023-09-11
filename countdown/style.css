@@ -43,12 +43,11 @@ html {
 
 body {
     /* color */
-    background: radial-gradient(circle, rgba(6,59,0,1) 0%, rgba(0,0,0,1) 100%);
+    background: radial-gradient(circle, rgba(6,59,0,.9) 0%, rgba(0,0,0,1) 100%);
 
     /* design */
     min-height: 100dvh;
     z-index: 10;
-    opacity: .9;
 
     /* structure */
     display: flex;
