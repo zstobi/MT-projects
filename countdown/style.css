@@ -505,3 +505,32 @@ a:hover {
     }
 
 }
+
+audio {
+    color: #000; /* Cambia el color del texto */
+}
+  
+audio::-webkit-media-controls {
+    
+
+    display: visible; /* Oculta los controles nativos en Chrome */
+}
+  
+audio::-webkit-media-controls-play-button {
+    background-color: forestgreen; /* Cambia el color de fondo */
+    border-radius: 100%;
+    display: visible; /* Oculta el botón de reproducción y el control de volumen en Chrome */
+}
+
+audio::-webkit-media-controls-volume-slider {
+    background-color: forestgreen; /* Cambia el color de fondo */
+    border: forestgreen;
+}
+
+audio::-webkit-media-controls-panel {
+    background-color: rgb(3, 80, 76);
+}
+
+audio::-webkit-media-controls-enclosure {
+    background-color: red;
+}
