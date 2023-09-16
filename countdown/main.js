@@ -202,5 +202,30 @@ function confettiSplash() {
 
 };
 
+var botonaudio = document.getElementById("botonmusica"); /*boton que hace play*/
+
+var audio = document.getElementById("payday-music"); /*consigue el id de html*/
+audio.volume = 0.3; /*volúmen*/ 
+/*audio.currentTime = 320;*/ /*cambia el tiempo de la canción*/
+
+/*botonaudio.addEventListener('click', function () {
+    audio.play(); /*play si click en botón
+  });*/
+
+function detectMuteAndPlay() {
+    /*si no está mute, play (no se usa)*/
+    console.log(audio.muted)
+    if (!audio.muted) {
+        audio.play();
+    }
+}
+
+setInterval(()=>{console.log(audio.muted)
+    /*intervarlo para detectar lo de arriba cada poco tiempo*/ 
+    if (!audio.muted) {
+        audio.play();
+    }},100)
+
+
 // test
 //confettiSplash()

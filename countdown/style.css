@@ -508,18 +508,22 @@ a:hover {
 
 audio {
     color: #000; /* Cambia el color del texto */
+    width: 120px;
+
 }
   
 audio::-webkit-media-controls {
     
 
     display: visible; /* Oculta los controles nativos en Chrome */
+    
 }
   
 audio::-webkit-media-controls-play-button {
     background-color: forestgreen; /* Cambia el color de fondo */
     border-radius: 100%;
-    display: visible; /* Oculta el botón de reproducción y el control de volumen en Chrome */
+    display: none; /* Oculta el botón de reproducción y el control de volumen en Chrome */
+    
 }
 
 audio::-webkit-media-controls-volume-slider {
@@ -529,8 +533,22 @@ audio::-webkit-media-controls-volume-slider {
 
 audio::-webkit-media-controls-panel {
     background-color: rgb(3, 80, 76);
+    
 }
 
 audio::-webkit-media-controls-enclosure {
     background-color: red;
+    
+}
+
+audio::-webkit-media-controls-time-remaining-display {
+    display: none;
+}
+
+audio::-webkit-media-controls-timeline {
+    display: none;
+}
+
+audio::-webkit-media-controls-current-time-display {
+    display: none;
 }
