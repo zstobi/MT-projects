@@ -1,3 +1,31 @@
+// MUSIC
+var botonaudio = document.getElementById("botonmusica").addEventListener("click", function(){ audio.play(); });; /*boton que hace play*/
+
+var audio = document.getElementById("payday-music"); /*consigue el id de html*/
+audio.volume = 0.3; /*volúmen*/ 
+
+
+/*botonaudio.addEventListener('click', function () {
+    audio.play(); /*play si click en botón
+  });*/
+
+//function detectMuteAndPlay() {
+//    /*si no está mute, play (no se usa)*/
+//    console.log(audio.muted)
+//    if (!audio.muted) {
+//        audio.play();
+//    }
+//}
+
+setInterval(()=>{console.log(audio.muted)
+    /*intervarlo para detectar lo de arriba cada poco tiempo*/ 
+    if (!audio.muted) {
+        audio.play();
+    }},100)
+
+//audio.currentTime = 3200; /*cambia el tiempo de la canción*/
+
+
 //  LOGIC
 
 // constantes del reloj
@@ -39,7 +67,8 @@ const year = (month * 12) + 5;
 */
 
 // fecha de salida payday 3
-const fechaFutura = new Date(2023,8,21);
+const fechaFutura = new Date(2023,8,21); //fechaFutura OG
+const fechaFuturaDrop = new Date(2023,8,20,23,59,51); //para la música
 
 // funcion que agrega un 0 en caso de tener un numero entre 0 y 10 sin incluir al 10
 function adding0IfNecessary(section,time){
@@ -50,11 +79,20 @@ function adding0IfNecessary(section,time){
     }
 }
 
+let fechaActual = new Date(2023,8,20,23,59,40); //pack de testeo
+let norepeat = true;
+let imgEnd = document.querySelector('#imgEnd');
+
 // funcion que va a realizar la logica del paso del tiempo hacia la salida del payday 3
 function timeCalculate(){
 
     // variable fecha actual
-    let fechaActual = new Date();
+    //let fechaActual = new Date();
+
+    let testSecs = fechaActual.getSeconds()
+    console.log(testSecs +1 )
+    fechaActual.setSeconds( (testSecs + 1) );
+   
 
     // distancia total entre la fecha de salida y la fecha actual, en milisegundos
     let distanceToPayday3 = fechaFutura.getTime() - fechaActual.getTime();
@@ -115,9 +153,19 @@ function timeCalculate(){
     adding0IfNecessary(secs,remainingSeconds);
 
     // comparamos fecha actual con futura
+    // si faltan 5 segundos, actualiza la música justo antes del drop
+    if (fechaActual > fechaFuturaDrop && norepeat) {
+        norepeat = false
+        audio.currentTime = 612;
+    }
+
+    // comparamos fecha actual con futura
     // si son iguales, finaliza el countdown y se activa la animacion
-    if (fechaActual === fechaFutura) {
+    if (fechaActual > fechaFutura) { // > porque === no servía
         clearInterval(timerTest);
+
+        imgEnd.classList.remove('displayOffEnd');
+        imgEnd.classList.add('displayOnEnd');
 
         confettiSplash();
     };
@@ -202,29 +250,7 @@ function confettiSplash() {
 
 };
 
-var botonaudio = document.getElementById("botonmusica"); /*boton que hace play*/
 
-var audio = document.getElementById("payday-music"); /*consigue el id de html*/
-audio.volume = 0.3; /*volúmen*/ 
-/*audio.currentTime = 320;*/ /*cambia el tiempo de la canción*/
-
-/*botonaudio.addEventListener('click', function () {
-    audio.play(); /*play si click en botón
-  });*/
-
-function detectMuteAndPlay() {
-    /*si no está mute, play (no se usa)*/
-    console.log(audio.muted)
-    if (!audio.muted) {
-        audio.play();
-    }
-}
-
-setInterval(()=>{console.log(audio.muted)
-    /*intervarlo para detectar lo de arriba cada poco tiempo*/ 
-    if (!audio.muted) {
-        audio.play();
-    }},100)
 
 
 // test
