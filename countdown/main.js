@@ -76,9 +76,9 @@ function adding0IfNecessary(section,time){
     }
 }
 
-let fechaActual = new Date(2023,8,20,23,59,40); //pack de testeo
+let fechaActualParaElFinDelCountdown = new Date(); //pack de testeo
 
-if (fechaActual > fechaFutura) {
+if (fechaActualParaElFinDelCountdown > fechaFutura) {
     end = true
 }
 
@@ -88,10 +88,10 @@ let imgEnd = document.querySelector('#imgEnd');
 function timeCalculate(){
 
     // variable fecha actual
-    //let fechaActual = new Date();
+    let fechaActual = new Date();
 
-    let testSecs = fechaActual.getSeconds()
-    fechaActual.setSeconds( (testSecs + 1) );
+    //let testSecs = fechaActual.getSeconds()
+    //fechaActual.setSeconds( (testSecs + 1) );
    
 
     // distancia total entre la fecha de salida y la fecha actual, en milisegundos
