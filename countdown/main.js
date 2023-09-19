@@ -16,7 +16,7 @@ setInterval(()=>{
         audio.play();
     }
     
-    if (!end && audio.currentTime > 513) { /*intervarlo para evitar el drop de la música si no es fin*/ 
+    if (!end && audio.currentTime > 512) { /*intervarlo para evitar el drop de la música si no es fin*/ 
         audio.currentTime = 246
     }
     
