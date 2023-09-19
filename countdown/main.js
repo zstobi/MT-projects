@@ -1,23 +1,16 @@
 // MUSIC
-var botonaudio = document.getElementById("botonmusica").addEventListener("click", function(){ audio.play(); });; /*boton que hace play*/
 
 var audio = document.getElementById("payday-music"); /*consigue el id de html*/
+
+let audioPlay = window.addEventListener('click', ()=>{
+        audio.play();
+        window.removeEventListener('click', audioPlay);
+});
+
 audio.volume = 0.3; /*volúmen*/ 
 
 
-/*botonaudio.addEventListener('click', function () {
-    audio.play(); /*play si click en botón
-  });*/
-
-//function detectMuteAndPlay() {
-//    /*si no está mute, play (no se usa)*/
-//    console.log(audio.muted)
-//    if (!audio.muted) {
-//        audio.play();
-//    }
-//}
-
-setInterval(()=>{console.log(audio.muted)
+setInterval(()=>{
     /*intervarlo para detectar lo de arriba cada poco tiempo*/ 
     if (!audio.muted) {
         audio.play();
@@ -79,7 +72,7 @@ function adding0IfNecessary(section,time){
     }
 }
 
-let fechaActual = new Date(2023,8,20,23,59,40); //pack de testeo
+//let fechaActual = new Date(2023,8,20,23,59,40); //pack de testeo
 let norepeat = true;
 let imgEnd = document.querySelector('#imgEnd');
 
@@ -87,11 +80,10 @@ let imgEnd = document.querySelector('#imgEnd');
 function timeCalculate(){
 
     // variable fecha actual
-    //let fechaActual = new Date();
+    let fechaActual = new Date();
 
-    let testSecs = fechaActual.getSeconds()
-    console.log(testSecs +1 )
-    fechaActual.setSeconds( (testSecs + 1) );
+    //let testSecs = fechaActual.getSeconds()
+    //fechaActual.setSeconds( (testSecs + 1) );
    
 
     // distancia total entre la fecha de salida y la fecha actual, en milisegundos
@@ -154,7 +146,7 @@ function timeCalculate(){
 
     // comparamos fecha actual con futura
     // si faltan 5 segundos, actualiza la música justo antes del drop
-    if (fechaActual > fechaFuturaDrop && norepeat) {
+    if (fechaActual > fechaFuturaDrop && norepeat) { //days.textContent
         norepeat = false
         audio.currentTime = 612;
     }
@@ -168,6 +160,11 @@ function timeCalculate(){
         imgEnd.classList.add('displayOnEnd');
 
         confettiSplash();
+
+        days.textContent = '00';
+        hours.textContent = '00';
+        mins.textContent = '00';
+        secs.textContent = '00';
     };
 }
 
@@ -253,5 +250,3 @@ function confettiSplash() {
 
 
 
-// test
-//confettiSplash()
