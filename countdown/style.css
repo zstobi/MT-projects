@@ -485,7 +485,7 @@ a:hover {
         font-size: 1.5rem;
     } 
     
-    .displayOnTopEnd{
+    .displayOnEnd{
         display: flex;
         place-items: center;
         place-content: center;

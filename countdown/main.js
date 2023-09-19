@@ -8,13 +8,18 @@ let audioPlay = window.addEventListener('click', ()=>{
 });
 
 audio.volume = 0.3; /*volúmen*/ 
-
+let end = false;
 
 setInterval(()=>{
     /*intervarlo para detectar lo de arriba cada poco tiempo*/ 
     if (!audio.muted) {
         audio.play();
-    }},100)
+    } else if (!end && audio.currentTime > 513) { /*intervarlo para evitar el drop de la música si no es fin*/ 
+        audio.currentTime = 246
+    } else if (end && audio.currentTime > 815) { /*intervarlo para loopear el drop de la música si es fin*/ 
+        audio.currentTime = 524.5 }  
+},1000)
+
 
 //audio.currentTime = 3200; /*cambia el tiempo de la canción*/
 
@@ -61,7 +66,6 @@ const year = (month * 12) + 5;
 
 // fecha de salida payday 3
 const fechaFutura = new Date(2023,8,21); //fechaFutura OG
-const fechaFuturaDrop = new Date(2023,8,20,23,59,51); //para la música
 
 // funcion que agrega un 0 en caso de tener un numero entre 0 y 10 sin incluir al 10
 function adding0IfNecessary(section,time){
@@ -72,18 +76,22 @@ function adding0IfNecessary(section,time){
     }
 }
 
-//let fechaActual = new Date(2023,8,20,23,59,40); //pack de testeo
-let norepeat = true;
+let fechaActual = new Date(2023,8,20,23,59,49); //pack de testeo
+
+if (fechaActual > fechaFutura) {
+    end = true
+}
+
 let imgEnd = document.querySelector('#imgEnd');
 
 // funcion que va a realizar la logica del paso del tiempo hacia la salida del payday 3
 function timeCalculate(){
 
     // variable fecha actual
-    let fechaActual = new Date();
+    //let fechaActual = new Date();
 
-    //let testSecs = fechaActual.getSeconds()
-    //fechaActual.setSeconds( (testSecs + 1) );
+    let testSecs = fechaActual.getSeconds()
+    fechaActual.setSeconds( (testSecs + 1) );
    
 
     // distancia total entre la fecha de salida y la fecha actual, en milisegundos
@@ -146,14 +154,18 @@ function timeCalculate(){
 
     // comparamos fecha actual con futura
     // si faltan 5 segundos, actualiza la música justo antes del drop
-    if (fechaActual > fechaFuturaDrop && norepeat) { //days.textContent
-        norepeat = false
-        audio.currentTime = 612;
+    if (days.textContent === '00' 
+    && hours.textContent === '00' 
+    && mins.textContent === '00'
+    && (secs.textContent === '10') ) {
+        end = true
+        audio.currentTime = 610;
     }
 
     // comparamos fecha actual con futura
     // si son iguales, finaliza el countdown y se activa la animacion
-    if (fechaActual > fechaFutura) { // > porque === no servía
+    if (fechaActual > fechaFutura) { 
+        end = true
         clearInterval(timerTest);
 
         imgEnd.classList.remove('displayOffEnd');
@@ -247,6 +259,8 @@ function confettiSplash() {
 
 };
 
-
+if (end) { //si ya terminó el countdown, así el audio queda en un loop más fuerte
+    audio.currentTime = 524.5 
+}
 
 
