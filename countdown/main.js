@@ -14,10 +14,15 @@ setInterval(()=>{
     /*intervarlo para detectar lo de arriba cada poco tiempo*/ 
     if (!audio.muted) {
         audio.play();
-    } else if (!end && audio.currentTime > 513) { /*intervarlo para evitar el drop de la música si no es fin*/ 
+    }
+    
+    if (!end && audio.currentTime > 513) { /*intervarlo para evitar el drop de la música si no es fin*/ 
         audio.currentTime = 246
-    } else if (end && audio.currentTime > 815) { /*intervarlo para loopear el drop de la música si es fin*/ 
+    }
+    
+    if (end && audio.currentTime > 815) { /*intervarlo para loopear el drop de la música si es fin*/ 
         audio.currentTime = 524.5 }  
+        
 },1000)
 
 
