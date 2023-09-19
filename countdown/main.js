@@ -76,7 +76,7 @@ function adding0IfNecessary(section,time){
     }
 }
 
-let fechaActual = new Date(2023,8,20,23,59,49); //pack de testeo
+let fechaActual = new Date(2023,8,20,23,59,40); //pack de testeo
 
 if (fechaActual > fechaFutura) {
     end = true
